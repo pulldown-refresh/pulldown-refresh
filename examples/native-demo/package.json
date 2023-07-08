@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "@pulldown-refresh/native-demo",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "builder dev",
+    "build": "builder build",
+    "serve": "builder serve"
+  },
+  "devDependencies": {
+    "@modern-js-app/eslint-config": "2.25.2",
+    "@modern-js/builder-cli": "2.25.2",
+    "@modern-js/builder-webpack-provider": "2.25.2",
+    "@modern-js/tsconfig": "2.25.2",
+    "@pulldown-refresh/native": "workspace:*",
+    "reset.css": "2.0.2"
+  }
+}
