@@ -1,1 +1,1 @@
-export { hello } from '@pulldown-refresh/core';
+export { PulldownRefresher } from './factory';
