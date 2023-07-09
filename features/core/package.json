@@ -1,17 +1,11 @@
 {
-  "private": true,
   "name": "@pulldown-refresh/core",
   "version": "0.1.0",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "modern dev",
-    "new": "modern new",
     "upgrade": "modern upgrade"
   },
-  "dependencies": {},
-  "peerDependencies": {},
   "devDependencies": {
-    "@modern-js/module-tools": "2.25.2",
     "@modern-js/eslint-config": "2.25.2",
     "@modern-js/tsconfig": "2.25.2",
     "@modern-js-app/eslint-config": "2.25.2",
@@ -23,10 +17,5 @@
     "@types/jest": "~29.2.4",
     "@types/node": "~16.11.7",
     "@types/react": "~18.0.26"
-  },
-  "sideEffects": [],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
   }
 }

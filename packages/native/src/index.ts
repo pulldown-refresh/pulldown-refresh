@@ -1,1 +1,3 @@
-export { PulldownRefresher } from './factory';
+import '@pulldown-refresh/core/static/index.scss';
+
+export { PulldownRefresher } from './component';
