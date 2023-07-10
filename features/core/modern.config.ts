@@ -6,16 +6,10 @@ const isProd = BUILD_ENV !== 'dev';
 export default defineConfig({
   plugins: [moduleTools()],
   buildPreset: ({ extendPreset }) => {
-    return extendPreset('npm-library-with-umd', {
+    return extendPreset('npm-library', {
       minify: isProd ? 'terser' : false,
       sourceMap: isProd ? false : 'external',
       target: 'es5',
-      esbuildOptions: options => {
-        options.loader = {
-          '.css.static': 'dataurl',
-        };
-        return options;
-      },
     });
   },
 });

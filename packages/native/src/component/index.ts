@@ -1,4 +1,5 @@
 import { createEvents, getConstants } from '@pulldown-refresh/core';
+import '@pulldown-refresh/core/dist/lib/index.css';
 
 class PulldownRefresherElement extends HTMLElement {
   private container: HTMLDivElement;
@@ -14,8 +15,7 @@ class PulldownRefresherElement extends HTMLElement {
     this.container = shadowRoot.querySelector('.pulldownRefresh__container') as HTMLDivElement;
 
     const style = document.createElement('style');
-    // @ts-expect-error COMPONENT_STYLE defined
-    style.innerHTML = COMPONENT_STYLE;
+    // style.innerHTML = COMPONENT_STYLE;
     shadowRoot.appendChild(style);
 
     this.registerConstants();

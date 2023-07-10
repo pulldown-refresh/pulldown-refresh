@@ -1,21 +1,35 @@
 {
   "name": "@pulldown-refresh/core",
   "version": "0.1.0",
-  "main": "./src/index.ts",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "unpkg": "./dist/umd/index.js",
   "scripts": {
+    "prepare": "modern build",
+    "dev": "modern dev",
+    "dev:watch": "cross-env BUILD_ENV=dev modern build -w",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "new": "modern new",
     "upgrade": "modern upgrade"
   },
   "devDependencies": {
     "@modern-js/eslint-config": "2.25.2",
+    "@modern-js/module-tools": "2.25.2",
     "@modern-js/tsconfig": "2.25.2",
     "@modern-js-app/eslint-config": "2.25.2",
-    "rimraf": "~3.0.2",
+    "@types/node": "~16.11.7",
+    "husky": "~8.0.1",
     "lint-staged": "~13.1.0",
     "prettier": "~2.8.1",
-    "husky": "~8.0.1",
-    "typescript": "~5.0.4",
-    "@types/jest": "~29.2.4",
-    "@types/node": "~16.11.7",
-    "@types/react": "~18.0.26"
+    "rimraf": "~3.0.2",
+    "typescript": "~5.0.4"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -3,4 +3,4 @@ import '@pulldown-refresh/native/dist/lib/index.css';
 import 'reset.css';
 import './index.module.scss';
 
-PulldownRefresher.register();
+PulldownRefresher.init('#pulldown-refresher');

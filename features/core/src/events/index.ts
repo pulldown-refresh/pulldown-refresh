@@ -1,9 +1,11 @@
-import { DIFF_LIMIT, STOP_ANIM_DURATION } from '../constants';
 import { CreateEventsParams } from './types';
+import { DIFF_LIMIT, STOP_ANIM_DURATION } from '@/constants';
 
 export const createEvents = ({ container, callback }: CreateEventsParams) => {
   let isPressing = false;
   let startY = 0;
+  let diff = 0;
+  const frameIds: number[] = [];
 
   const handlePressDown = (ev: TouchEvent) => {
     isPressing = true;
@@ -15,12 +17,13 @@ export const createEvents = ({ container, callback }: CreateEventsParams) => {
     if (!isPressing) {
       return;
     }
-    requestAnimationFrame(() => {
-      const diff = ev.changedTouches[0].clientY - startY;
+    const frameId = requestAnimationFrame(() => {
+      diff = 0.5 * (ev.changedTouches[0].clientY - startY);
       if (diff > 0) {
-        container.style.transform = `translateY(${Math.min(diff, DIFF_LIMIT)}px)`;
+        container.style.transform = `translateY(${diff}px)`;
       }
     });
+    frameIds.push(frameId);
   };
 
   const stopRefresh = () => {
@@ -31,21 +34,22 @@ export const createEvents = ({ container, callback }: CreateEventsParams) => {
     }, STOP_ANIM_DURATION);
   };
 
-  const handlePressUp = (ev: TouchEvent) => {
+  const handlePressUp = () => {
     isPressing = false;
     container.style.transition = `transform ${STOP_ANIM_DURATION}ms ease`;
+    frameIds.forEach(id => cancelAnimationFrame(id));
 
-    if (ev.changedTouches[0].clientY < startY + DIFF_LIMIT) {
+    if (diff < DIFF_LIMIT) {
       stopRefresh();
       return;
     }
 
     container.style.transform = `translateY(${DIFF_LIMIT}px)`;
-    startY = 0;
     if (!callback) {
       setTimeout(() => stopRefresh(), 2000);
       return;
     }
+
     callback(() => stopRefresh());
   };
 
