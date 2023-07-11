@@ -10,12 +10,6 @@ export default defineConfig({
       minify: isProd ? 'terser' : false,
       sourceMap: isProd ? false : 'external',
       target: 'es5',
-      esbuildOptions: options => {
-        options.loader = {
-          '.css.static': 'dataurl',
-        };
-        return options;
-      },
     });
   },
 });

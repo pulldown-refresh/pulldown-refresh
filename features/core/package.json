@@ -20,6 +20,7 @@
     "@modern-js/module-tools": "2.25.2",
     "@modern-js/tsconfig": "2.25.2",
     "@modern-js-app/eslint-config": "2.25.2",
+    "@pulldown-refresh/util": "workspace:*",
     "@types/node": "~16.11.7",
     "husky": "~8.0.1",
     "lint-staged": "~13.1.0",

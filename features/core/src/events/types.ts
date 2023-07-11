@@ -1,4 +1,5 @@
+import { CoreConfig } from '@/types';
+
 export type CreateEventsParams = {
   container: HTMLElement;
-  callback?: (finish: () => void) => void | Promise<void>;
-};
+} & CoreConfig;

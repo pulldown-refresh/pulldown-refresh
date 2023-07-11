@@ -21,6 +21,7 @@
     "@modern-js/module-tools": "2.25.2",
     "@modern-js/tsconfig": "2.25.2",
     "@pulldown-refresh/core": "workspace:*",
+    "@pulldown-refresh/util": "workspace:*",
     "@types/node": "~16.11.7",
     "esbuild": "0.17.19",
     "husky": "~8.0.1",
